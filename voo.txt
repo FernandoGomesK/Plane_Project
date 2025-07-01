@@ -1,0 +1,6 @@
+criar 10 vôos, cada um com seu identificador
+cada vôo tem 250 lugares
+associar cliente -> vôo -> lugares
+oq o beto faria: dicionaro com random choice de nome para colocar os nomes. usar o faker(que é bom também)
+
+associar tripulantes ao vôo
