@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Person(ABC):
     def __init__(self, name):
         self.name = name
@@ -10,8 +11,8 @@ class Person(ABC):
 
 
 class Passenger(Person):
-    def __init__(self, name, age):
-        super().__init__(name, age)
+    def __init__(self, name):
+        super().__init__(name)
         
 class Flight_Crew(Person):
     def __init__(self, name):
