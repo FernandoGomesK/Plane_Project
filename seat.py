@@ -1,12 +1,28 @@
-import uuid
+
+from person import Passenger
 
 class Seat:
-    def __init__(self):
-        self.seat_id = str(uuid.uuid4())[:4]
-        self.passenger = None
+    def __init__(self, seat_id: str):
+        self._seat_id = seat_id
+        self._passenger = None
         
-    def is_occupied(self):
+    @property
+    def seat_id(self):
+        return self._seat_id
+    
+    @property
+    def passenger(self):
+        return self._passenger
+    @property
+    def is_occupied(self) -> bool:
         return self.passenger is not None
+    
+    def assign_passenger(self, passenger: Passenger):
+        if not self.is_occupied():
+            self._passenger = passenger
+            return True
+        return False
+    
     def show_seat_info(self):
         if self.is_occupied():
             print(f" seat id: {self.seat_id} is occupied by {self.passenger.name}")

@@ -1,29 +1,34 @@
 import random
 from seat import Seat
-from person import Person, Passenger
+from person import Passenger, Pilot , Copilot
 import uuid
 
 class Flight:
-    def __init__(self,total_seats: str):
-        self.flight_id = str(uuid.uuid4())[:4]
-        self.total_seats = int(total_seats)
-        self.pilot = None
-        self.copilot = None
-        self.seats = [Seat() for x in range(1, total_seats + 1)]
+    def __init__(self, total_seats: int):
+        self._flight_id = str(uuid.uuid4())[:4]
+        self._total_seats = int(total_seats)
+        self._pilot = None
+        self._copilot = None
+        self._seats = [Seat(i) for i in range(1, total_seats + 1)]
+        
+    @property
+    def flight_id(self):
+        return self._flight_id
 
     def show_seats(self):
         for s in self.seats:
             print(f"flight id: {self.flight_id}")
             s.show_seat_info()
             
-    def assign_crew(self, pilot: Person, copilot: Person):
+    def assign_crew(self, pilot: Pilot, copilot: Copilot):
         self.pilot = pilot
         self.copilot = copilot
+        pilot.be_assigned(self.flight_id)
+        copilot.be_assigned(self.flight_id)
         
-    def assign_passenger(self, passenger: Passenger):
-        for s in self.seats:
-            if not s.is_occupied():
-                s.passenger = passenger
+    def assign_passenger(self, passenger: Passenger, seat: Seat):
+        for s in self._seats:
+            if seat.assign_passenger():
                 passenger.be_assigned(self.flight_id, s.seat_id)
                 return True
         print(f"flight {self.flight_id} is full")

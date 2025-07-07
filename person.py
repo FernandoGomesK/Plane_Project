@@ -3,10 +3,14 @@ from abc import ABC, abstractmethod
 
 class Person(ABC):
     def __init__(self, name):
-        self.name = name
+        self._name = name
         
+    @property
+    def name(self):
+        return self._name
+    
     @abstractmethod
-    def be_assigned(self, flight_id, seat_id):
+    def be_assigned(self, flight_id, seat_id = None):
         pass
 
 class Passenger(Person):
@@ -16,24 +20,31 @@ class Passenger(Person):
     def be_assigned(self, flight_id, seat_id):
         print(f"Passenger {self.name} is assigned to flight {flight_id} and seat {seat_id}")
         
+
+class FlightCrew(Person):
+    def __init__(self, name, role):
+        super().__init__(name)
+        self.role = role 
+        
+    @property
+    def role(self):
+        return self._role
+    
+    def be_assigned(self, flight_id, seat_id = None):
+        print(f"Flight crew member {self.name} is assigned to flight {flight_id}")
+        
 class Pilot(Person):
     def __init__(self, name):
-        super().__init__(name)
-        self.role = "pilot"
+        super().__init__(name, role = "pilot")
         
     def be_assigned(self, flight_id, seat_id = None):
-        print(f"Pilot {self.name} is assigned to flight {flight_id}")
+        print(f"Flight crew member {self.name} is assigned to flight {flight_id}")
+         
         
 class Copilot(Person):
     def __init__(self, name):
-        super().__init__(name)
-        self.role = "copilot"
-    def be_assigned(self, flight_id, seat_id = None):
-        print(f"Copilot {self.name} is assigned to flight {flight_id}")
+        super().__init__(name, role = "copilot")
         
-class Flight_Crew(Person):
-    def __init__(self, name):
-        super().__init__(name)
-        self.role = "flight_crew"
     def be_assigned(self, flight_id, seat_id = None):
         print(f"Flight crew member {self.name} is assigned to flight {flight_id}")
+        

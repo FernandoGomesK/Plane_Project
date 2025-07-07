@@ -1,5 +1,4 @@
 from flight import Flight
-from person import Passenger
 from faker import Faker
 from flight_list import flight_list
 
