@@ -1,11 +1,20 @@
 from flight import Flight
+from person import Passenger
+from faker import Faker
+from flight_list import flight_list
 
-class Flight_rows:
-    def __init__(self):
-        self.flights = [Flight() for x in range(10)]
+fake = Faker('pt_BR')
         
-    def show_flights(self):
-        for f in self.flights:
-            f.show_id()
-            
-vous = Flight_rows()
+
+        
+
+
+
+
+    
+# test_run()
+def real_run():
+    list_fly = flight_list()
+    list_fly.initialize()
+    
+real_run()

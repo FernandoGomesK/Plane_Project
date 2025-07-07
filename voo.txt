@@ -1,7 +1,7 @@
 create 10 flights, each one with its own identifier
-each flight has 250 seatess
+each flight has 250 seats
 associate client -> flight -> seat
-what beto woul'd do: dictionary with a random choice with the names, or tu utilize faker(which is good to)
+what beto woul'd do: dictionary with a random choice with the names, or to utilize faker(which is good to)
 show 10 random seats in a flight
 show the planes crew
 
