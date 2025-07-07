@@ -4,12 +4,13 @@ from faker import Faker
 
 fake = Faker('pt_BR')
 
-class flight_list:
+class FlightManager:
     def __init__(self):
-        self.flights = []
+        self._flights = []
         
-    def add_flight(self, flight):
-        self.flights.append(flight)  
+    def add_flight(self, flight: Flight):
+        print(f"flight {flight.flight_id} added")
+        self._flights.append(flight)  
         
     def initialize(self, flights = 2, passenger_number = 100 ):
         for i in range(flights):
