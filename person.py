@@ -22,7 +22,7 @@ class Passenger(Person):
         
 
 class FlightCrew(Person):
-    def __init__(self, name, role):
+    def __init__(self, name: str, role: str):
         super().__init__(name)
         self._role = role 
         
@@ -33,25 +33,3 @@ class FlightCrew(Person):
     def be_assigned(self, flight_id, seat_id = None):
         print(f"Flight crew member {self.name} {self.role} is assigned to flight {flight_id}")
         
-class Pilot(FlightCrew):
-    def __init__(self, name):
-        super().__init__(name, role = "pilot")
-        
-    def be_assigned(self, flight_id, seat_id = None):
-        print(f"Flight crew member {self.name} is assigned to flight {flight_id}")
-         
-        
-class Copilot(FlightCrew):
-    def __init__(self, name):
-        super().__init__(name, role = "copilot")
-        
-    def be_assigned(self, flight_id, seat_id = None):
-        print(f"Flight crew member {self.name} is assigned to flight {flight_id}")
-        
-        
-class CabinCrew(FlightCrew):
-    def __init__(self, name):
-        super().__init__(name, role = "cabin crew")
-        
-    def be_assigned(self, flight_id, seat_id = None):
-        print(f"Flight crew member {self.name} is assigned to flight {flight_id}")

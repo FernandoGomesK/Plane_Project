@@ -1,5 +1,4 @@
 from flight import Flight
-from person import Passenger, Pilot, Copilot 
 from faker import Faker
 
 fake = Faker('pt_BR')

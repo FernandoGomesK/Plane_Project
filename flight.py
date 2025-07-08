@@ -1,6 +1,6 @@
 import random
 from seat import Seat
-from person import Passenger, Pilot , Copilot, CabinCrew
+from person import Passenger, FlightCrew
 import uuid
 from typing import List
 
@@ -10,7 +10,7 @@ class Flight:
         self._total_seats = total_seats
         self._pilot = None
         self._copilot = None
-        self._cabin_crew = List[CabinCrew]
+        self._cabin_crew = List[FlightCrew]
         self._seats = [Seat(i) for i in range(1, total_seats + 1)]
         
     @property
@@ -23,7 +23,7 @@ class Flight:
             print(f"flight id: {self.flight_id}")
             s.show_seat_info()
             
-    def assign_crew(self, pilot: Pilot, copilot: Copilot, cabin_crew: list[CabinCrew]):
+    def assign_crew(self, pilot: FlightCrew, copilot: FlightCrew, cabin_crew: list[FlightCrew]):
         self._pilot = pilot
         self._copilot = copilot
         self._cabin_crew = cabin_crew
