@@ -1,6 +1,6 @@
 # Flight Management Simulator ✈️
 
-    This project is a Python-based command-line application that simulates the management of airline flights. It handles the creation of flights, assignment of crew and passengers, and generation of flight manifests.
+This project is a Python-based command-line application that simulates the management of airline flights. It handles the creation of flights, assignment of crew and passengers, and generation of flight manifests.
 
 # Core Features
 
