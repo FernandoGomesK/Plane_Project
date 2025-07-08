@@ -1,8 +1,8 @@
-Flight Management Simulator ✈️
+# Flight Management Simulator ✈️
 
-This project is a Python-based command-line application that simulates the management of airline flights. It handles the creation of flights, assignment of crew and passengers, and generation of flight manifests.
+    This project is a Python-based command-line application that simulates the management of airline flights. It handles the creation of flights, assignment of crew and passengers, and generation of flight manifests.
 
-Core Features
+# Core Features
 
     Dynamic Flight Creation: Generates multiple flights with a specified number of seats.
 
@@ -14,7 +14,7 @@ Core Features
 
     Flight Manifest: Displays a detailed manifest for each flight, including crew details and a random sample of 10 boarded passengers.
 
-Code Structure
+# Code Structure
 
     main.py: The main entry point to run the simulation.
 
@@ -26,15 +26,15 @@ Code Structure
 
     seat.py: Contains the Seat class, which handles seat status and passenger assignment.
 
-Libraries and Modules
+# Libraries and Modules
 
 This project uses a combination of one external library and several built-in Python modules.
 
-External Library
+# External Library
 
     Faker: Utilized to generate random names for crew and passengers.
 
-Built-in Modules
+# Built-in Modules
 
     random: Used to sample 10 random passengers for the manifest display.
 
