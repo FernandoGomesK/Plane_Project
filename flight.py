@@ -1,7 +1,8 @@
 import random
 from seat import Seat
-from person import Passenger, Pilot , Copilot
+from person import Passenger, Pilot , Copilot, CabinCrew
 import uuid
+from typing import List
 
 class Flight:
     def __init__(self, total_seats: int):
@@ -9,6 +10,7 @@ class Flight:
         self._total_seats = total_seats
         self._pilot = None
         self._copilot = None
+        self._cabin_crew = List[CabinCrew]
         self._seats = [Seat(i) for i in range(1, total_seats + 1)]
         
     @property
@@ -21,12 +23,14 @@ class Flight:
             print(f"flight id: {self.flight_id}")
             s.show_seat_info()
             
-    def assign_crew(self, pilot: Pilot, copilot: Copilot):
+    def assign_crew(self, pilot: Pilot, copilot: Copilot, cabin_crew: list[CabinCrew]):
         self._pilot = pilot
         self._copilot = copilot
+        self._cabin_crew = cabin_crew
         pilot.be_assigned(self.flight_id)
         copilot.be_assigned(self.flight_id)
-        
+        for c in cabin_crew:
+            c.be_assigned(self.flight_id)
     def assign_passenger(self, passenger: Passenger):
         for seat in self._seats:
             if seat.assign(passenger):
@@ -50,6 +54,7 @@ class Flight:
         print("-" * 30)
         print(f" flight manifest: {self.flight_id}")
         print(f"pilot: {self._pilot.name} | copilot: {self._copilot.name}")
+        print(f"cabin crew: {[c.name for c in self._cabin_crew]}")
         print("-" * 30)
         print(f" total seats: {self._total_seats} | occupied seats: {self.count_occupied_seats()}")
         

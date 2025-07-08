@@ -48,3 +48,10 @@ class Copilot(FlightCrew):
     def be_assigned(self, flight_id, seat_id = None):
         print(f"Flight crew member {self.name} is assigned to flight {flight_id}")
         
+        
+class CabinCrew(FlightCrew):
+    def __init__(self, name):
+        super().__init__(name, role = "cabin crew")
+        
+    def be_assigned(self, flight_id, seat_id = None):
+        print(f"Flight crew member {self.name} is assigned to flight {flight_id}")
