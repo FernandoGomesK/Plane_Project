@@ -15,7 +15,7 @@ def run_system():
     for i in range(num_flights):
         flight = Flight(total_seats = seats_per_flight)
         airline.add_flight(flight)
-        
+        print(f"flight {flight.flight_id} added")
         pilot = FlightCrew(fake.name(), role = "pilot")
         copilot = FlightCrew(fake.name(), role = "copilot")
         cabin_crew = [FlightCrew(fake.name(), role = "cabin crew") for x in range(3)]

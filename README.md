@@ -22,7 +22,7 @@ This project is a Python-based command-line application that simulates the manag
 
     flightmanager.py: Contains the FlightManager class, responsible for creating and managing a list of all flights.
 
-    person.py: Defines the abstract base class Person and the inherited classes Passenger, Pilot, Copilot, and CabinCrew.
+    person.py: Defines the abstract base class Person and the inherited classes Passenger and FlightCrew, which contains Pilot, Copilot and CabinCrew
 
     seat.py: Contains the Seat class, which handles seat status and passenger assignment.
 

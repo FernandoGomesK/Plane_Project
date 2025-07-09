@@ -8,7 +8,6 @@ class FlightManager:
         self._flights = []
         
     def add_flight(self, flight: Flight):
-        print(f"flight {flight.flight_id} added")
         self._flights.append(flight)  
         
  
