@@ -26,7 +26,8 @@ This project is a Python-based command-line application that simulates the manag
 
     seat.py: Contains the Seat class, which handles seat status and passenger assignment.
 
-    planemodel.py: contains all the models of plane available at the moment.
+    planemodel.py: Contains the models of the plane, which in turn control the amount of seats in the plane
+
 # Libraries and Modules
 
 This project uses a combination of one external library and several built-in Python modules.
