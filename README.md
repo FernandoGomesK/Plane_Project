@@ -26,6 +26,7 @@ This project is a Python-based command-line application that simulates the manag
 
     seat.py: Contains the Seat class, which handles seat status and passenger assignment.
 
+    planemodel.py: contains all the models of plane available at the moment.
 # Libraries and Modules
 
 This project uses a combination of one external library and several built-in Python modules.
@@ -36,7 +37,7 @@ This project uses a combination of one external library and several built-in Pyt
 
 # Built-in Modules
 
-    random: Used to sample 10 random passengers for the manifest display.
+    random: Used to sample 10 random passengers for the manifest display, and to select the plane model in the test run
 
     uuid: Used to generate unique IDs for each flight.
 
