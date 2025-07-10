@@ -3,9 +3,10 @@ from seat import Seat
 from person import Passenger, FlightCrew
 import uuid
 from typing import List
+from planemodel import AirplaneModel
 
 class Flight:
-    def __init__(self, total_seats: int):
+    def __init__(self, plane_model: AirplaneModel):
         """
         Constructor for Flight class.
 
@@ -20,17 +21,25 @@ class Flight:
             _cabin_crew (list[FlightCrew]): List of cabin crew members.
             _seats (list[Seat]): List of all seats on the flight.
         """
+        self._plane_model = plane_model.model_name
         self._flight_id = str(uuid.uuid4())[:4]
-        self._total_seats = total_seats
+        self._total_seats = plane_model.seat_capacity
         self._pilot = None
         self._copilot = None
-        self._cabin_crew = List[FlightCrew]
-        self._seats = [Seat(i) for i in range(1, total_seats + 1)]
+        self._cabin_crew = []
+        self._seats = [Seat(i) for i in range(1, self._total_seats + 1)]
         
     @property
     def flight_id(self):
-        
         return self._flight_id
+    
+    @property
+    def total_seats(self):
+        return self._total_seats
+    
+    @property
+    def plane_model(self):
+        return self._plane_model
 
     def show_seats(self):
         """
@@ -85,7 +94,7 @@ class Flight:
                 
     def display_manifest(self):
         print("-" * 30)
-        print(f" flight manifest: {self.flight_id}")
+        print(f" flight manifest: plane model: {self.plane_model} Flight ID: {self.flight_id}")
         print(f"pilot: {self._pilot.name} | copilot: {self._copilot.name}")
         print(f"cabin crew: {[c.name for c in self._cabin_crew]}")
         print("-" * 30)
