@@ -1,7 +1,9 @@
+import random
 from flight import Flight
 from faker import Faker
 from flightmanager import FlightManager
 from person import Passenger, FlightCrew
+from planemodel import AirplaneModel
 
 
 def run_system():
@@ -9,11 +11,15 @@ def run_system():
     airline = FlightManager()
     
     num_flights = 10
-    seats_per_flight = 20
-    passengers = 20
-    
+
+    available_models = list(AirplaneModel)
+      
     for i in range(num_flights):
-        flight = Flight(total_seats = seats_per_flight)
+        plane_model = random.choice(available_models)
+        flight = Flight(plane_model = plane_model)
+        
+        passengers = flight.total_seats
+        
         airline.add_flight(flight)
         print(f"flight {flight.flight_id} added")
         pilot = FlightCrew(fake.name(), role = "pilot")
